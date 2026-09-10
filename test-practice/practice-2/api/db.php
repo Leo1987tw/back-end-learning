@@ -4,6 +4,8 @@ $config = include __DIR__ . "/../../../../db_config/back-end-learning/test-pract
 
 session_start();
 
+date_default_timezone_set("Asia/Taipei");
+
 class DB{
     protected $dsn;
     protected $pdo;
@@ -136,13 +138,13 @@ $User = new DB('users');
 $VisitLog = new DB('visit_logs');
 
 if(!isset($_SESSION['visit'])){
-    $today = $VisitLog->find(['date' => date("Y-m-d")]);
+    $today = $VisitLog->find(['visit_date' => date("Y-m-d")]);
     if(!empty($today)){
-        $today['number'] += 1;
+        $today['view_count'] += 1;
         $VisitLog->save($today);
-        $_SESSION['visit'] = $today['number'];
+        $_SESSION['visit'] = $today['view_count'];
     }else {
-        $VisitLog->save(['date' => date("Y-m-d"), 'number' => 1]);
+        $VisitLog->save(['visit_date' => date("Y-m-d"), 'view_count' => 1]);
         $_SESSION['visit'] = 1;
     }
 }

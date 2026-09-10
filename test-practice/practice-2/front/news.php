@@ -20,7 +20,7 @@
         foreach($rows as $row):
         ?>
         <tr>
-            <td class="post-title"><?= $row['title'];?></td>
+            <td class="post-title clo"><?= $row['title'];?></td>
             <td>
                 <span><?= mb_substr($row['content'], 0, 30);?>...</span>
                 <span style="display: none;"><?= nl2br($row['content'])?></span>
@@ -29,7 +29,7 @@
                 <?php
 
                 if(!empty($_SESSION['login'])){
-                    echo "<a href='javascript: good({$row['id']})'>";
+                    echo "<a href='javascript: good({$row['id']});'>";
                     $check = $Log->count(['user_id' => $_SESSION['login'], 'post_id' => $row['id']]);
                     if($check){
                         echo "收回讚";

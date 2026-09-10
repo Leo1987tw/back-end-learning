@@ -6,7 +6,7 @@
 </style>
 
 <div>
-    目前位置：首頁 > 分類網誌 > <span class="nav-item">健康新知</span>
+    目前位置：首頁 > 分類網誌 > <span class="nav-item"></span>
 </div>
 
 <fieldset style="width: 150px;">
@@ -24,7 +24,7 @@
 </fieldset>
 
 <script>
-    $(".nav-item").text($(".type-item").eq(0).text())
+    $(".nav-item").text($(".type-item").eq(0).text());
 
     getPosts($(".type-item").eq(0).text());
     

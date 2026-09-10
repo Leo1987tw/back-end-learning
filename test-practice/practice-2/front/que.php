@@ -63,28 +63,3 @@
 
     ?>
 </div>
-
-<script>
-    $(".post-title").hover(
-        function(){
-            $(".alerr").hide();
-            $(this).next("td").children(".alerr").show();
-        }, function(){
-            $(".alerr").show();
-        }
-    );
-
-    $("alerr").hover(
-        function(){
-            $(this).show();
-        }, function(){
-            $(".alerr").hide();
-        }
-    );
-
-    function good(id){
-        $.post("./api/api_good.php", {id}, () => {
-            location.reload();
-        });
-    }
-</script>
