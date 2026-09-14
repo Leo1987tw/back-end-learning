@@ -10,8 +10,8 @@ for($i = 1; $i<=10; $i++){
     $data = [];
     $data['order_number'] = date("Ymd") . sprintf("%04d", $i);
     $data['movie_id'] = $movies[rand(0, 1)];
-    $data['on_date'] = $date[rand(0, 1)];
-    $data['session'] = $session[rand(0, 1)];
+    $data['on_date'] = $date[rand(0, 3)];
+    $data['session'] = $session[rand(0, 4)];
     $remainingSeats = $Order->q("SELECT COUNT(*) FROM `orders` WHERE `movie_id`= '{$data['movie_id']}' and `on_date`='{$data['on_date']}' and `session`='{$data['session']}'");
     if($remainingSeats == 0){
         continue;

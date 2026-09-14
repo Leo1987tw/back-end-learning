@@ -47,7 +47,7 @@ if($date == $today && $hour > 14){
 
 if($start != 5){
     for($i = $start; $i < 5; $i++){
-        $quantity = $Order->q("SELECT sum(`quantity`) AS `sum` FROM `orders` WHERE `movie_id`='{$movie['id']}' AND `on_date`='$date' AND `session`='$sessions[$i]'")[0]["sum"];
+        $quantity = $Order->q("SELECT SUM(`quantity`) AS `sum` FROM `orders` WHERE `movie_id`='{$movie['id']}' AND `on_date`='$date' AND `session`='$sessions[$i]'")[0]["sum"];
         $remainingSeats = 20 - $quantity;
         echo "<option value='$sessions[$i]'>$sessions[$i] 剩餘座位$remainingSeats</option>";
     }

@@ -13,7 +13,7 @@ if(!empty($_FILES['poster']['tmp_name'])){
 }
 
 $_POST['status'] = 1;
-$_POST['sort'] = $Movie->q("SELECT MAX(`id`) AS 'maxid' FROM `movies`;")[0]['maxid'] + 1;
+$_POST['sort'] = $Movie->q("SELECT MAX(`id`) AS `maxid` FROM `maxid`;")[0]['maxid'] + 1;
 
 $year = $_POST['year'];
 $month = sprintf("%02d", $_POST['month']);
